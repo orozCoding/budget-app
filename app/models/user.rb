@@ -10,4 +10,8 @@ class User < ApplicationRecord
     message: "only allows letters" }
   validates :name, length: { maximum: 200 }
 
+  def is?(role)
+    self.role == role
+  end
+
 end
