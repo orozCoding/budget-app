@@ -1,5 +1,6 @@
 class MovementsController < ApplicationController
   before_action :set_movement, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /movements or /movements.json
   def index
