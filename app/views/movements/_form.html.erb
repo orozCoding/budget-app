@@ -22,6 +22,11 @@
   </div>
 
   <div>
+    <%= form.label :group, style: "display: block" %>
+    <%= form.collection_check_boxes(:group_ids, Group.all, :id, :name) %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
