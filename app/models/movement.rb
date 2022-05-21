@@ -1,0 +1,2 @@
+class Movement < ApplicationRecord
+end
