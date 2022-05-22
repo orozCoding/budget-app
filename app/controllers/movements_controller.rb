@@ -66,7 +66,7 @@ class MovementsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def movement_params
-    hash = params.require(:movement).permit(:name, :amount, group_ids: [] )
+    hash = params.require(:movement).permit(:name, :amount, group_ids: [])
     hash[:author] = current_user
     hash
   end

@@ -12,69 +12,68 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/movements", type: :request do
-  
+RSpec.describe '/movements', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Movement. As you add validations to Movement, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do
+    skip('Add a hash of attributes valid for your model')
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    skip('Add a hash of attributes invalid for your model')
+  end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       Movement.create! valid_attributes
       get movements_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       movement = Movement.create! valid_attributes
       get movement_url(movement)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_movement_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       movement = Movement.create! valid_attributes
       get edit_movement_url(movement)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Movement" do
-        expect {
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new Movement' do
+        expect do
           post movements_url, params: { movement: valid_attributes }
-        }.to change(Movement, :count).by(1)
+        end.to change(Movement, :count).by(1)
       end
 
-      it "redirects to the created movement" do
+      it 'redirects to the created movement' do
         post movements_url, params: { movement: valid_attributes }
         expect(response).to redirect_to(movement_url(Movement.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Movement" do
-        expect {
+    context 'with invalid parameters' do
+      it 'does not create a new Movement' do
+        expect do
           post movements_url, params: { movement: invalid_attributes }
-        }.to change(Movement, :count).by(0)
+        end.to change(Movement, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -84,20 +83,20 @@ RSpec.describe "/movements", type: :request do
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
+      end
 
-      it "updates the requested movement" do
+      it 'updates the requested movement' do
         movement = Movement.create! valid_attributes
         patch movement_url(movement), params: { movement: new_attributes }
         movement.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
-      it "redirects to the movement" do
+      it 'redirects to the movement' do
         movement = Movement.create! valid_attributes
         patch movement_url(movement), params: { movement: new_attributes }
         movement.reload
@@ -105,7 +104,7 @@ RSpec.describe "/movements", type: :request do
       end
     end
 
-    context "with invalid parameters" do
+    context 'with invalid parameters' do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         movement = Movement.create! valid_attributes
         patch movement_url(movement), params: { movement: invalid_attributes }
@@ -114,15 +113,15 @@ RSpec.describe "/movements", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested movement" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested movement' do
       movement = Movement.create! valid_attributes
-      expect {
+      expect do
         delete movement_url(movement)
-      }.to change(Movement, :count).by(-1)
+      end.to change(Movement, :count).by(-1)
     end
 
-    it "redirects to the movements list" do
+    it 'redirects to the movements list' do
       movement = Movement.create! valid_attributes
       delete movement_url(movement)
       expect(response).to redirect_to(movements_url)
