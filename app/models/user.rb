@@ -6,9 +6,12 @@ class User < ApplicationRecord
   has_many :movements, foreign_key: 'author_id', dependent: :destroy
   has_many :groups, foreign_key: 'author_id', dependent: :destroy
 
-  validates :name, format: { with: /\A[a-zA-Z]+\z/,
+  validates :first_name, format: { with: /\A[a-zA-Z]+\z/,
     message: "only allows letters" }
-  validates :name, length: { maximum: 200 }
+  validates :last_name, format: { with: /\A[a-zA-Z]+\z/,
+    message: "only allows letters" }
+  validates :first_name, length: { maximum: 100 }
+  validates :last_name, length: { maximum: 100 }
 
   def is?(role)
     self.role == role
