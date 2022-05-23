@@ -30,7 +30,6 @@ class MovementsController < ApplicationController
     @movement = Movement.new(movement_params)
 
     if params[:group_id]
-      puts '======================= BOOOOYYYY ====================='
       @group = Group.find(params[:group_id])
     end
 
