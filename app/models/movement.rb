@@ -1,7 +1,7 @@
 class Movement < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :group_movements
-  has_many :groups, through: :group_movements
+  has_many :groups, through: :group_movements, dependent: :destroy
 
   validates :name, length: { maximum: 300, message: 'The name is too long' }
   validates :name, presence: { message: 'Please submit a name' }

@@ -1,7 +1,7 @@
 class Group < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :group_movements
-  has_many :movements, through: :group_movements
+  has_many :movements, through: :group_movements, dependent: :destroy
 
   validates :icon, length: { minimo: 2, maximum: 2 }
   validates :icon, numericality: { only_integer: true }

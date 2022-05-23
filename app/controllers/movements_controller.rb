@@ -30,16 +30,16 @@ class MovementsController < ApplicationController
     @movement = Movement.new(movement_params)
 
     if params[:group_id]
-      puts "======================= BOOOOYYYY ====================="
+      puts '======================= BOOOOYYYY ====================='
       @group = Group.find(params[:group_id])
     end
 
     respond_to do |format|
       if @movement.save
-        if !@group.nil?
-          format.html { redirect_to group_path(@group), notice: 'Movement was successfully created.' }
+        if @group.nil?
+          format.html { redirect_to movement_path(@movement), notice: 'Movement was successfully created.' }
         else
-          format.html { redirect_to group_path(@group), notice: 'Movement was successfully created.' }  
+          format.html { redirect_to group_path(@group), notice: 'Movement was successfully created.' }
         end
         format.json { render :show, status: :created, location: @movement }
       else
