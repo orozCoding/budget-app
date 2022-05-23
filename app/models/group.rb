@@ -3,9 +3,10 @@ class Group < ApplicationRecord
   has_many :group_movements
   has_many :movements, through: :group_movements
 
-  validates :icon, length: { maximum: 2 }
+  validates :icon, length: { minimo: 2, maximum: 2 }
   validates :icon, numericality: { only_integer: true }
-  validates :name, length: { maximum: 30 }
+  validates :name, length: { maximum: 30, message: 'The name is too long' }
+  validates :name, presence: { message: 'Please submit a name' }
 
   def movements_total
     total = 0
