@@ -6,4 +6,13 @@ class Group < ApplicationRecord
   validates :icon, length: { maximum: 1 }
   validates :icon, numericality: { only_integer: true }
   validates :name, length: { maximum: 30 }
+
+  def movements_total
+    total = 0
+    movements.each do |movement|
+      total += movement.amount
+    end
+
+    total
+  end
 end
