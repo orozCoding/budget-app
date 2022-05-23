@@ -1,10 +1,13 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @group %>
-
-<div>
-  <%= link_to "Edit this group", edit_group_path(@group) %> |
-  <%= link_to "Back to groups", groups_path %>
-
-  <%= button_to "Destroy this group", @group, method: :delete %>
+<div class="d-flex">
+  <p><%= @group.name %> <%= "Total: $#{@group.movements_total}" %></p>
+</div>
+<% @group.movements_list.each do |movement| %>
+  <p><%= movement.name %> <%= "$#{movement.amount}" %></p>
+<% end %>
+<div class="cat-btn-ctn">
+  <%= link_to "Add new transaction", new_movement_path %>
+  <%= link_to "Edit this category", edit_group_path(@group) %> |
+  <%= button_to "Delete this category", @group, method: :delete %>
+  <%= link_to "Back", groups_path %>
 </div>

@@ -2,7 +2,6 @@
   <% if group.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
-
       <ul>
         <% group.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,18 +9,178 @@
       </ul>
     </div>
   <% end %>
-
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
-
-  <div>
-    <%= form.label :icon, style: "display: block" %>
-    <%= form.number_field :icon %>
+  <div class="d-flex col">
+    <div class="d-flex">
+      <%= form.label :icon %><br />
+    </div>
+    <div class="form-icons-ctn d-flex">
+      <div class="d-flex col">
+        <i class="<%= @icons[:bill] %>"></i>
+        <%= form.radio_button :icon, 1, :checked => true %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:market_car] %>"></i>
+        <%= form.radio_button :icon, 2 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:credit_card] %>"></i>
+        <%= form.radio_button :icon, 3 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:wallet] %>"></i>
+        <%= form.radio_button :icon, 4 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:bank] %>"></i>
+        <%= form.radio_button :icon, 5 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:piggy] %>"></i>
+        <%= form.radio_button :icon, 6 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:heart] %>"></i>
+        <%= form.radio_button :icon, 7 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:house] %>"></i>
+        <%= form.radio_button :icon, 8 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:basket] %>"></i>
+        <%= form.radio_button :icon, 9 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:truck] %>"></i>
+        <%= form.radio_button :icon, 10 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:bicycle] %>"></i>
+        <%= form.radio_button :icon, 11 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:controller] %>"></i>
+        <%= form.radio_button :icon, 12 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:musical_note] %>"></i>
+        <%= form.radio_button :icon, 13 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:images] %>"></i>
+        <%= form.radio_button :icon, 14 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:film] %>"></i>
+        <%= form.radio_button :icon, 15 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:palette] %>"></i>
+        <%= form.radio_button :icon, 16 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:phone] %>"></i>
+        <%= form.radio_button :icon, 17 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:gem] %>"></i>
+        <%= form.radio_button :icon, 18 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:box] %>"></i>
+        <%= form.radio_button :icon, 19 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:pencil] %>"></i>
+        <%= form.radio_button :icon, 20 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:vector_pen] %>"></i>
+        <%= form.radio_button :icon, 21 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:bug] %>"></i>
+        <%= form.radio_button :icon, 22 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:clipboard] %>"></i>
+        <%= form.radio_button :icon, 23 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:clock] %>"></i>
+        <%= form.radio_button :icon, 24 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:watch] %>"></i>
+        <%= form.radio_button :icon, 25 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:inlove_em] %>"></i>
+        <%= form.radio_button :icon, 26 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:smile_em] %>"></i>
+        <%= form.radio_button :icon, 27 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:happy_em] %>"></i>
+        <%= form.radio_button :icon, 28 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:dizzy_em] %>"></i>
+        <%= form.radio_button :icon, 29 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:sunglasses_em] %>"></i>
+        <%= form.radio_button :icon, 30 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:geo_alt] %>"></i>
+        <%= form.radio_button :icon, 31 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:pin] %>"></i>
+        <%= form.radio_button :icon, 32 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:megaphone] %>"></i>
+        <%= form.radio_button :icon, 33 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:trophy] %>"></i>
+        <%= form.radio_button :icon, 34 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:usb_drive] %>"></i>
+        <%= form.radio_button :icon, 35 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:exclamation] %>"></i>
+        <%= form.radio_button :icon, 36 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:wrench] %>"></i>
+        <%= form.radio_button :icon, 37 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:yin_yang] %>"></i>
+        <%= form.radio_button :icon, 38 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:person_square] %>"></i>
+        <%= form.radio_button :icon, 39 %>
+      </div>
+      <div class="d-flex col">
+        <i class="<%= @icons[:trash] %>"></i>
+        <%= form.radio_button :icon, 40 %>
+      </div>
+    </div>
   </div>
-
   <div>
-    <%= form.submit %>
+    <%= form.submit "Save" %>
   </div>
 <% end %>
