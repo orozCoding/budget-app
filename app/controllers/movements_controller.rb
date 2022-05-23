@@ -5,7 +5,7 @@ class MovementsController < ApplicationController
 
   # GET /movements or /movements.json
   def index
-    @movements = Movement.all
+    @movements = Movement.where(author_id: current_user.id)
   end
 
   # GET /movements/1 or /movements/1.json
