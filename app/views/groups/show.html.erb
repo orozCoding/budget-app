@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 <div class="d-flex">
-  <p><%= @group.name %> <%= "Total: $#{@group.movements_total}" %></p>
+  <i class="<%= @icons.values[@group.icon]%>"></i>
+  <p><%= @group.name %> </p>
+  <p><%= "Total: $#{@group.movements_total}" %></p>
 </div>
 <% @group.movements_list.each do |movement| %>
   <p><%= movement.name %> <%= "$#{movement.amount}" %></p>
