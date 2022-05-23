@@ -3,8 +3,7 @@ class Group < ApplicationRecord
   has_many :group_movements
   has_many :movements, through: :group_movements, dependent: :destroy
 
-  validates :icon, length: { minimo: 2, maximum: 2 }
-  validates :icon, numericality: { only_integer: true }
+  validates :icon, numericality: { only_integer: true, less_than: 41, greater_than: 0 }
   validates :name, length: { maximum: 30, message: 'The name is too long' }
   validates :name, presence: { message: 'Please submit a name' }
 
