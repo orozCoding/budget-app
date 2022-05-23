@@ -22,7 +22,7 @@ RSpec.describe '/movements', type: :request do
     Group.destroy_all
     Movement.destroy_all
     @user = User.create!(id: 1, first_name: 'Amigo', last_name: 'Soy',
-      email: 'my@email.com', password: '321321')
+                         email: 'my@email.com', password: '321321')
     @group = Group.create(id: 1, author: @user, icon: 1, name: 'Food')
     @movement = Movement.create(id: 1, author: @user, name: 'Pizza', amount: 50, group_ids: [1])
     login_as @user, scope: :user
@@ -62,12 +62,12 @@ RSpec.describe '/movements', type: :request do
     context 'with valid parameters' do
       it 'creates a new Movement' do
         expect do
-          post "/groups/#{@group.id}/movements", params: { movement: {id: 2, author: @user, name: 'Pizza', amount: 50, group_ids: [1]} }
+          post "/groups/#{@group.id}/movements", params: { movement: { id: 2, author: @user, name: 'Pizza', amount: 50, group_ids: [1] } }
         end.to change(Movement, :count).by(1)
       end
 
       it 'redirects to the category' do
-        post "/groups/#{@group.id}/movements", params: { movement: {id: 2, author: @user, name: 'Pizza', amount: 50, group_ids: [1]} }
+        post "/groups/#{@group.id}/movements", params: { movement: { id: 2, author: @user, name: 'Pizza', amount: 50, group_ids: [1] } }
         expect(response).to redirect_to(group_url(@group))
       end
     end
@@ -75,12 +75,12 @@ RSpec.describe '/movements', type: :request do
     context 'with invalid parameters' do
       it 'does not create a new Movement' do
         expect do
-          post "/groups/#{@group.id}/movements", params: { movement: {id: 2, author: @user, name: 'Pizza', amount: -1, group_ids: [1]} }
+          post "/groups/#{@group.id}/movements", params: { movement: { id: 2, author: @user, name: 'Pizza', amount: -1, group_ids: [1] } }
         end.to change(Movement, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        post "/groups/#{@group.id}/movements", params: { movement: {id: 2, author: @user, name: 'Pizza', amount: -1, group_ids: [1]} }
+        post "/groups/#{@group.id}/movements", params: { movement: { id: 2, author: @user, name: 'Pizza', amount: -1, group_ids: [1] } }
         expect(response.body).to include('error')
       end
     end

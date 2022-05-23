@@ -22,7 +22,7 @@ RSpec.describe '/groups', type: :request do
     User.destroy_all
     Group.destroy_all
     @user = User.create!(id: 1, first_name: 'Amigo', last_name: 'Soy',
-      email: 'my@email.com', password: '321321')
+                         email: 'my@email.com', password: '321321')
     @group = Group.create(id: 1, author: @user, icon: 1, name: 'Food')
     login_as @user, scope: :user
   end
