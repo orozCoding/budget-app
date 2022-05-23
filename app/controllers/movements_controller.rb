@@ -5,7 +5,7 @@ class MovementsController < ApplicationController
 
   # GET /movements or /movements.json
   def index
-    @movements = Movement.all
+    @movements = Movement.where(author_id: current_user.id)
   end
 
   # GET /movements/1 or /movements/1.json
@@ -14,6 +14,12 @@ class MovementsController < ApplicationController
   # GET /movements/new
   def new
     @movement = Movement.new
+    @group = Group.find(params[:group_id]) if params[:group_id]
+  end
+
+  def category_new
+    @movement = Movement.new
+    @group = Group.find(params[:group_id]) if params[:group_id]
   end
 
   # GET /movements/1/edit
@@ -23,9 +29,18 @@ class MovementsController < ApplicationController
   def create
     @movement = Movement.new(movement_params)
 
+    if params[:group_id]
+      puts '======================= BOOOOYYYY ====================='
+      @group = Group.find(params[:group_id])
+    end
+
     respond_to do |format|
       if @movement.save
-        format.html { redirect_to movement_url(@movement), notice: 'Movement was successfully created.' }
+        if @group.nil?
+          format.html { redirect_to movement_path(@movement), notice: 'Movement was successfully created.' }
+        else
+          format.html { redirect_to group_path(@group), notice: 'Movement was successfully created.' }
+        end
         format.json { render :show, status: :created, location: @movement }
       else
         format.html { render :new, status: :unprocessable_entity }

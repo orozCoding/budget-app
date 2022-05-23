@@ -1,12 +1,7 @@
 <div id="<%= dom_id group %>">
-  <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
-
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
-
+  <div class="cat-ctn d-flex">
+  <i class="<%= @icons.values[group.icon] %>"></i>
+    <%= link_to group.name, group %>
+    <p><%= "$#{group.movements_total}" %></p>
+  </div>
 </div>

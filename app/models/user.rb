@@ -12,6 +12,8 @@ class User < ApplicationRecord
                                   message: 'only allows letters' }
   validates :first_name, length: { maximum: 100 }
   validates :last_name, length: { maximum: 100 }
+  validates :first_name, presence: { message: 'Please submit your first name' }
+  validates :last_name, presence: { message: 'Please submit your last name' }
 
   def is?(role)
     self.role == role

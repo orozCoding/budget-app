@@ -11,7 +11,7 @@ AllCops:
 Layout/LineLength:
   Max: 250
 Metrics/MethodLength:
-  Max: 20
+  Max: 45
 Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
