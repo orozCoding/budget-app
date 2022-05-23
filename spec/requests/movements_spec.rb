@@ -13,118 +13,121 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe '/movements', type: :request do
+  include Warden::Test::Helpers
   # This should return the minimal set of attributes required to create a valid
   # Movement. As you add validations to Movement, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+  before(:example) do
+    User.destroy_all
+    Group.destroy_all
+    Movement.destroy_all
+    @user = User.create!(id: 1, first_name: 'Amigo', last_name: 'Soy',
+      email: 'my@email.com', password: '321321')
+    @group = Group.create(id: 1, author: @user, icon: 1, name: 'Food')
+    @movement = Movement.create(id: 1, author: @user, name: 'Pizza', amount: 50, group_ids: [1])
+    login_as @user, scope: :user
   end
 
-  let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
-  end
-
-  describe 'GET /index' do
+  describe 'GET /groups/:group_id/movements' do
     it 'renders a successful response' do
-      Movement.create! valid_attributes
-      get movements_url
+      get "/groups/#{@group.id}/movements"
       expect(response).to be_successful
     end
   end
 
-  describe 'GET /show' do
-    it 'renders a successful response' do
-      movement = Movement.create! valid_attributes
-      get movement_url(movement)
-      expect(response).to be_successful
-    end
-  end
+  # describe 'GET /show' do
+  #   it 'renders a successful response' do
+  #     movement = Movement.create! valid_attributes
+  #     get movement_url(movement)
+  #     expect(response).to be_successful
+  #   end
+  # end
 
-  describe 'GET /new' do
-    it 'renders a successful response' do
-      get new_movement_url
-      expect(response).to be_successful
-    end
-  end
+  # describe 'GET /new' do
+  #   it 'renders a successful response' do
+  #     get new_movement_url
+  #     expect(response).to be_successful
+  #   end
+  # end
 
-  describe 'GET /edit' do
-    it 'renders a successful response' do
-      movement = Movement.create! valid_attributes
-      get edit_movement_url(movement)
-      expect(response).to be_successful
-    end
-  end
+  # describe 'GET /edit' do
+  #   it 'renders a successful response' do
+  #     movement = Movement.create! valid_attributes
+  #     get edit_movement_url(movement)
+  #     expect(response).to be_successful
+  #   end
+  # end
 
-  describe 'POST /create' do
+  describe 'POST /groups/:group_id/movements' do
     context 'with valid parameters' do
       it 'creates a new Movement' do
         expect do
-          post movements_url, params: { movement: valid_attributes }
+          post "/groups/#{@group.id}/movements", params: { movement: {id: 2, author: @user, name: 'Pizza', amount: 50, group_ids: [1]} }
         end.to change(Movement, :count).by(1)
       end
 
-      it 'redirects to the created movement' do
-        post movements_url, params: { movement: valid_attributes }
-        expect(response).to redirect_to(movement_url(Movement.last))
+      it 'redirects to the category' do
+        post "/groups/#{@group.id}/movements", params: { movement: {id: 2, author: @user, name: 'Pizza', amount: 50, group_ids: [1]} }
+        expect(response).to redirect_to(group_url(@group))
       end
     end
 
     context 'with invalid parameters' do
       it 'does not create a new Movement' do
         expect do
-          post movements_url, params: { movement: invalid_attributes }
+          post "/groups/#{@group.id}/movements", params: { movement: {id: 2, author: @user, name: 'Pizza', amount: -1, group_ids: [1]} }
         end.to change(Movement, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        post movements_url, params: { movement: invalid_attributes }
-        expect(response).to be_successful
+        post "/groups/#{@group.id}/movements", params: { movement: {id: 2, author: @user, name: 'Pizza', amount: -1, group_ids: [1]} }
+        expect(response.body).to include('error')
       end
     end
   end
 
-  describe 'PATCH /update' do
-    context 'with valid parameters' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
+  # describe 'PATCH /update' do
+  #   context 'with valid parameters' do
+  #     let(:new_attributes) do
+  #       skip('Add a hash of attributes valid for your model')
+  #     end
 
-      it 'updates the requested movement' do
-        movement = Movement.create! valid_attributes
-        patch movement_url(movement), params: { movement: new_attributes }
-        movement.reload
-        skip('Add assertions for updated state')
-      end
+  #     it 'updates the requested movement' do
+  #       movement = Movement.create! valid_attributes
+  #       patch movement_url(movement), params: { movement: new_attributes }
+  #       movement.reload
+  #       skip('Add assertions for updated state')
+  #     end
 
-      it 'redirects to the movement' do
-        movement = Movement.create! valid_attributes
-        patch movement_url(movement), params: { movement: new_attributes }
-        movement.reload
-        expect(response).to redirect_to(movement_url(movement))
-      end
-    end
+  #     it 'redirects to the movement' do
+  #       movement = Movement.create! valid_attributes
+  #       patch movement_url(movement), params: { movement: new_attributes }
+  #       movement.reload
+  #       expect(response).to redirect_to(movement_url(movement))
+  #     end
+  #   end
 
-    context 'with invalid parameters' do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
-        movement = Movement.create! valid_attributes
-        patch movement_url(movement), params: { movement: invalid_attributes }
-        expect(response).to be_successful
-      end
-    end
-  end
+  #   context 'with invalid parameters' do
+  #     it "renders a successful response (i.e. to display the 'edit' template)" do
+  #       movement = Movement.create! valid_attributes
+  #       patch movement_url(movement), params: { movement: invalid_attributes }
+  #       expect(response).to be_successful
+  #     end
+  #   end
+  # end
 
-  describe 'DELETE /destroy' do
-    it 'destroys the requested movement' do
-      movement = Movement.create! valid_attributes
-      expect do
-        delete movement_url(movement)
-      end.to change(Movement, :count).by(-1)
-    end
+  # describe 'DELETE /destroy' do
+  #   it 'destroys the requested movement' do
+  #     movement = Movement.create! valid_attributes
+  #     expect do
+  #       delete movement_url(movement)
+  #     end.to change(Movement, :count).by(-1)
+  #   end
 
-    it 'redirects to the movements list' do
-      movement = Movement.create! valid_attributes
-      delete movement_url(movement)
-      expect(response).to redirect_to(movements_url)
-    end
-  end
+  #   it 'redirects to the movements list' do
+  #     movement = Movement.create! valid_attributes
+  #     delete movement_url(movement)
+  #     expect(response).to redirect_to(movements_url)
+  #   end
+  # end
 end

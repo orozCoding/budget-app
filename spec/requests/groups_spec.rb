@@ -13,20 +13,22 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe '/groups', type: :request do
+  include Warden::Test::Helpers
   # This should return the minimal set of attributes required to create a valid
   # Group. As you add validations to Group, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
-  end
 
-  let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+  before(:example) do
+    User.destroy_all
+    Group.destroy_all
+    @user = User.create!(id: 1, first_name: 'Amigo', last_name: 'Soy',
+      email: 'my@email.com', password: '321321')
+    @group = Group.create(id: 1, author: @user, icon: 1, name: 'Food')
+    login_as @user, scope: :user
   end
 
   describe 'GET /index' do
     it 'renders a successful response' do
-      Group.create! valid_attributes
       get groups_url
       expect(response).to be_successful
     end
@@ -34,8 +36,7 @@ RSpec.describe '/groups', type: :request do
 
   describe 'GET /show' do
     it 'renders a successful response' do
-      group = Group.create! valid_attributes
-      get group_url(group)
+      get group_url(@group)
       expect(response).to be_successful
     end
   end
@@ -49,8 +50,7 @@ RSpec.describe '/groups', type: :request do
 
   describe 'GET /edit' do
     it 'renders a successful response' do
-      group = Group.create! valid_attributes
-      get edit_group_url(group)
+      get edit_group_url(@group)
       expect(response).to be_successful
     end
   end
@@ -59,72 +59,72 @@ RSpec.describe '/groups', type: :request do
     context 'with valid parameters' do
       it 'creates a new Group' do
         expect do
-          post groups_url, params: { group: valid_attributes }
+          post groups_url, params: { group: { id: 2, author: @user, icon: 1, name: 'Movie' } }
         end.to change(Group, :count).by(1)
       end
 
-      it 'redirects to the created group' do
-        post groups_url, params: { group: valid_attributes }
-        expect(response).to redirect_to(group_url(Group.last))
+      it 'redirects to index of groups' do
+        post groups_url, params: { group: { id: 2, author: @user, icon: 1, name: 'Movie' } }
+        expect(response).to redirect_to(groups_url)
       end
     end
 
     context 'with invalid parameters' do
       it 'does not create a new Group' do
         expect do
-          post groups_url, params: { group: invalid_attributes }
+          post groups_url, params: { group: { id: 2, author: @user, icon: -1, name: 'Movie' } }
         end.to change(Group, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        post groups_url, params: { group: invalid_attributes }
-        expect(response).to be_successful
+        post groups_url, params: { group: { id: 2, author: @user, icon: -1, name: 'Movie' } }
+        expect(response.body).to include('error')
       end
     end
   end
 
-  describe 'PATCH /update' do
-    context 'with valid parameters' do
-      let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
-      end
+  # describe 'PATCH /update' do
+  #   context 'with valid parameters' do
+  #     let(:new_attributes) do
+  #       skip('Add a hash of attributes valid for your model')
+  #     end
 
-      it 'updates the requested group' do
-        group = Group.create! valid_attributes
-        patch group_url(group), params: { group: new_attributes }
-        group.reload
-        skip('Add assertions for updated state')
-      end
+  #     it 'updates the requested group' do
+  #       group = Group.create! valid_attributes
+  #       patch group_url(group), params: { group: new_attributes }
+  #       group.reload
+  #       skip('Add assertions for updated state')
+  #     end
 
-      it 'redirects to the group' do
-        group = Group.create! valid_attributes
-        patch group_url(group), params: { group: new_attributes }
-        group.reload
-        expect(response).to redirect_to(group_url(group))
-      end
-    end
+  #     it 'redirects to the group' do
+  #       group = Group.create! valid_attributes
+  #       patch group_url(group), params: { group: new_attributes }
+  #       group.reload
+  #       expect(response).to redirect_to(group_url(group))
+  #     end
+  #   end
 
-    context 'with invalid parameters' do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
-        group = Group.create! valid_attributes
-        patch group_url(group), params: { group: invalid_attributes }
-        expect(response).to be_successful
-      end
-    end
-  end
+  #   context 'with invalid parameters' do
+  #     it "renders a successful response (i.e. to display the 'edit' template)" do
+  #       group = Group.create! valid_attributes
+  #       patch group_url(group), params: { group: invalid_attributes }
+  #       expect(response).to be_successful
+  #     end
+  #   end
+  # end
 
-  describe 'DELETE /destroy' do
-    it 'destroys the requested group' do
-      group = Group.create! valid_attributes
-      expect do
-        delete group_url(group)
-      end.to change(Group, :count).by(-1)
-    end
+  # describe 'DELETE /destroy' do
+  #   it 'destroys the requested group' do
+  #     group = Group.create! valid_attributes
+  #     expect do
+  #       delete group_url(group)
+  #     end.to change(Group, :count).by(-1)
+  #   end
 
-    it 'redirects to the groups list' do
-      group = Group.create! valid_attributes
-      delete group_url(group)
-      expect(response).to redirect_to(groups_url)
-    end
-  end
+  #   it 'redirects to the groups list' do
+  #     group = Group.create! valid_attributes
+  #     delete group_url(group)
+  #     expect(response).to redirect_to(groups_url)
+  #   end
+  # end
 end
