@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   end
 
   root 'users#home'
+
+  get 'groups/:group_id/movements', to: 'movements#category_new'
+  post 'groups/:group_id/movements', to: 'movements#create'
 end

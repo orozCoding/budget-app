@@ -1,4 +1,4 @@
-<%= form_with(model: movement) do |form| %>
+<%= form_with(model: movement, url: "/groups/#{@group.id}/movements") do |form| %>
   <% if movement.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(movement.errors.count, "error") %> prohibited this movement from being saved:</h2>
@@ -22,10 +22,14 @@
     <%= form.collection_check_boxes(:group_ids, Group.all, :id, :name ) do |b| %>
         <i class="<%= @icons.values[b.object.icon] %>"></i>
         <%=b.text%>
-        <%=b.check_box%>
+        <% if b.object.id == @group.id %>
+          <%=b.check_box checked: true %>
+        <% else %>
+          <%=b.check_box %>
+        <% end %>
     <% end %>
   </div>
   <div>
-    <%= form.submit %>
+    <%= form.submit 'Save' %>
   </div>
 <% end %>
