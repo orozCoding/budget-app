@@ -15,6 +15,25 @@
  */
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+@font-face {
+  font-family: 'proxima-nova-bold';
+  src: url('/assets/proxima_nova_bold.otf')
+}
+
+@font-face {
+  font-family: 'proxima-nova-light';
+  src: url('/assets/proxima_nova_light.otf')
+}
+
+:root {
+  --blue: #3778c2;
+  --green: #5fb523;
+  --grey: #434b54;
+  --light: 'proxima-nova-light';
+  --bold: 'proxima-nova-bold'
+}
 
 * {
   margin: 0;
@@ -28,4 +47,59 @@
 
 .col {
   flex-direction: column;
+}
+
+a, button {
+  all: unset;
+  cursor: pointer;
+}
+
+body {
+  background-color: rgb(70, 70, 70);
+  font-family: var(--light);
+  text-align: center;
+  color: var(--grey)
+  /* height: 100vh; */
+}
+
+.body-ctn {
+  max-width: 430px;
+  background-color: white;
+  margin: auto;
+  height: 100vh;
+}
+
+.home-ctn {
+  height: 100%;
+  border: solid 2px red;
+  justify-content: flex-end;
+}
+
+.logo-ctn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.splash-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 40px;
+  cursor: default;
+  color: black;
+}
+
+.logo-ctn i {
+  font-size: 60px;
+  color: black;
+}
+
+.home-btns-ctn {
+  border: solid 2px greenyellow;
+  padding: 20px 5px;
+}
+
+.home-btns-ctn .login-btn {
+  
 }
