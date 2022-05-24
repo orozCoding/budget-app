@@ -4,9 +4,9 @@
 <div class="login-form-ctn d-flex col">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name),
   html: {class: 'form-login d-flex col'}) do |f| %>
-  <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
-<%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
-<%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+    <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+    <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+    <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
     <div class="main-fields">
       <div class="field">
         <%= f.email_field :email, placeholder: 'Email', autofocus: true, autocomplete: "email" %>
@@ -22,9 +22,9 @@
       </div>
     <% end %>
     <div class="actions">
-      <%= f.submit "LOG IN", class: 'form-button' %>
+      <%= f.submit "LOG IN", class: 'form-btn' %>
     </div>
   <% end %>
 </div>
 <%= render "devise/shared/links" %>
-<%= link_to 'Back', '/' %>
+<%= link_to 'Home', '/' %>

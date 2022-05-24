@@ -137,7 +137,7 @@ body {
   border: solid 1px lightgray;
 }
 
-.login-form-ctn input[name='user[password]'] {
+.main-fields .field:not(:first-child) {
   margin-top: -1px;
 }
 
@@ -155,7 +155,7 @@ body {
   text-align: right;
 }
 
-.form-button {
+.form-btn {
   padding: 15px;
   width: 90%;
   color: white;
