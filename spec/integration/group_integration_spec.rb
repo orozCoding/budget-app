@@ -19,16 +19,16 @@ RSpec.describe 'Group', type: :feature do
     it 'Shows categories on logged users' do
       login_as @user
       visit '/'
-      expect(page).to have_content('Categories')
+      expect(page).to have_content('CATEGORIES')
     end
 
     it 'Adds new categories' do
       login_as @user
       visit '/'
-      click_link 'Add new category'
+      click_link 'ADD NEW CATEGORY'
       fill_in 'Name', with: 'Food'
       choose 'group_icon_2'
-      click_button 'Save'
+      click_button 'SAVE'
       expect(page).to have_content('Group was successfully created')
     end
   end

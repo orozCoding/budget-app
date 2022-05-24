@@ -18,23 +18,23 @@ RSpec.describe 'User home', type: :feature do
 
     it 'Logs in correctly' do
       visit '/'
-      click_button 'Log In'
+      click_button 'LOG IN'
       fill_in 'Email', with: 'my@email.com'
       fill_in 'Password', with: '321321'
-      click_button 'Log in'
-      expect(page).to have_content('Categories')
+      click_button 'LOG IN'
+      expect(page).to have_content('CATEGORIES')
     end
 
     it 'Registers in correctly' do
       visit '/'
-      click_button 'Sign Up'
-      fill_in 'First name', with: 'Angel'
-      fill_in 'Last name', with: 'Orozco'
+      click_button 'SIGN UP'
+      fill_in 'First Name', with: 'Angel'
+      fill_in 'Last Name', with: 'Orozco'
       fill_in 'Email', with: 'my2@email.com'
-      fill_in 'Password', with: '321321'
+      fill_in 'Password (6 characters minimum)', with: '321321'
       fill_in 'Password confirmation', with: '321321'
-      click_button 'Sign up'
-      expect(page).to have_content('Categories')
+      click_button 'SIGN UP'
+      expect(page).to have_content('CATEGORIES')
     end
   end
 end

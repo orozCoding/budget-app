@@ -19,16 +19,16 @@ RSpec.describe 'Movement', type: :feature do
     it 'Shows new transaction form' do
       login_as @user
       visit "/groups/#{@group.id}/movements"
-      expect(page).to have_content('New transaction')
+      expect(page).to have_content('NEW TRANSACTION')
     end
 
     it 'Adds new transaction' do
       login_as @user
       visit "/groups/#{@group.id}/movements"
       fill_in 'Name', with: 'Pizza'
-      fill_in 'Amount', with: 30
+      fill_in 'movement[amount]', with: 30
       check 'movement_group_ids_1'
-      click_button 'Save'
+      click_button 'SAVE'
       expect(page).to have_content('Movement was successfully created')
     end
   end

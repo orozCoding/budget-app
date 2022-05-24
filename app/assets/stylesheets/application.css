@@ -16,6 +16,7 @@
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 @font-face {
   font-family: 'proxima-nova-bold';
@@ -91,7 +92,6 @@ body {
 
 .home-ctn {
   flex-grow: 1;
-  border: solid 2px red;
   justify-content: flex-end;
   min-height: 100%;
 }
@@ -101,8 +101,8 @@ body {
 }
 
 .splash-title {
-  font-family: 'Fredoka One', cursive;
-  font-size: 40px;
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
   cursor: default;
   color: black;
 }
@@ -320,6 +320,10 @@ hr {
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+.icons-list div {
+  align-items: center;
 }
 
 .icon-box {

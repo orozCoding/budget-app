@@ -9,6 +9,10 @@
       <% @groups.each do |group| %>
         <%= render group %>
       <% end %>
+      <% if @groups.empty? %>
+        <p>You have no categories!</p>
+        <%= link_to "Create new category", new_group_path %>
+      <% end %>
     </div>
   </div>
   <%= link_to "ADD NEW CATEGORY", new_group_path, class: 'new-cat-btn' %>

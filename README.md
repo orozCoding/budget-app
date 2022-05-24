@@ -1,24 +1,71 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Budget App
 
-Things you may want to cover:
+Mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
 
-* Ruby version
+### Preview
 
-* System dependencies
+![alt text](http://url/to/img.png)
+![alt text](http://url/to/img.png)
+![alt text](http://url/to/img.png)
 
-* Configuration
+Coming soon
 
-* Database creation
+## Live Version
 
-* Database initialization
+Coming soon
 
-* How to run the test suite
+## Built With
+- Ruby on Rails
 
-* Services (job queues, cache servers, search engines, etc.)
+## Getting Started
+- Follow setup instructions below
 
-* Deployment instructions
+### Prerequisites
 
-* ...
+- Ruby
+- Git and Github
+- Terminal
+- Browser
+
+### Setup
+
+- clone the following repo `https://github.com/orozCoding/budget-app.git`
+- cd into the directory and run `bundle install` to install dependencies
+- Run `rails db:create` and then `rails db:migrate`
+- Run `rails s` to start the app
+- Visit `localhost:3000` in your browser
+
+### Tests
+
+- To run the tests, simply run `rspec` command
+
+# Credits
+
+## Authors
+
+👤 **Angel Orozco** (orozCoding).
+
+- GitHub: [@orozCoding](https://github.com/orozCoding)
+- Twitter: [@orozCoding](https://twitter.com/orozCoding)
+- LinkedIn: [Angel Orozco](https://www.linkedin.com/in/angel-orozco-652230228/)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- [Microverse](https://www.microverse.org/)
+- Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
