@@ -96,10 +96,13 @@ body {
 }
 
 .home-btns-ctn {
-  border: solid 2px greenyellow;
   padding: 20px 5px;
+  gap: 15px;
 }
 
 .home-btns-ctn .login-btn {
-  
+  padding: 15px;
+  width: 80%;
+  color: white;
+  background-color: var(--blue);
 }
