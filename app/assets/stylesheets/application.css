@@ -31,8 +31,10 @@
   --blue: #3778c2;
   --green: #5fb523;
   --grey: #434b54;
-  --light: 'proxima-nova-light';
-  --bold: 'proxima-nova-bold'
+  --light: proxima-nova-light;
+  --bold: proxima-nova-bold;
+  --bred: 2px solid red;
+  --bgreen: 2px solid green;
 }
 
 * {
@@ -51,6 +53,10 @@
 
 a, button {
   all: unset;
+  cursor: pointer;
+}
+
+input[type='submit'] {
   cursor: pointer;
 }
 
@@ -105,4 +111,60 @@ body {
   width: 80%;
   color: white;
   background-color: var(--blue);
+}
+
+.section-header {
+  background-color: var(--blue);
+  padding: 15px 0;
+  color: white;
+}
+
+.login-form-ctn {
+  padding: 20px 0;
+}
+
+.form-login {
+  gap: 20px;
+}
+
+.login-form-ctn .field,
+.login-form-ctn .field input {
+  width: 100%;
+}
+
+.login-form-ctn .field input {
+  padding: 15px 10px;
+  border: solid 1px lightgray;
+}
+
+.login-form-ctn input[name='user[password]'] {
+  margin-top: -1px;
+}
+
+.login-form-ctn .remember-line {
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.remember-label {
+  text-align: right;
+}
+
+.remember-cb {
+  text-align: right;
+}
+
+.form-button {
+  padding: 15px;
+  width: 90%;
+  color: white;
+  background-color: var(--blue);
+  border: none;
+}
+
+input:focus {
+  background-color: rgb(234, 249, 255);
+  border: none;
+  outline: none;
 }
