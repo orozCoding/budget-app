@@ -4,10 +4,12 @@
 <%= render 'shared/user-status'%>
 <div class="section-categories d-flex col">
   <p style="color: green"><%= notice %></p>
-  <div id="groups" class="categories-ctn d-flex col vh-70">
-    <% @groups.each do |group| %>
-      <%= render group %>
-    <% end %>
+  <div class="categories-wraper per-80">
+    <div id="groups" class="categories-ctn d-flex col ">
+      <% @groups.each do |group| %>
+        <%= render group %>
+      <% end %>
+    </div>
   </div>
-  <%= link_to "Add new category", new_group_path, class: 'new-cat-btn' %>
+  <%= link_to "ADD NEW CATEGORY", new_group_path, class: 'new-cat-btn' %>
 </div>
