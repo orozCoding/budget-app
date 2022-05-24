@@ -29,10 +29,7 @@ class MovementsController < ApplicationController
   def create
     @movement = Movement.new(movement_params)
 
-    if params[:group_id]
-      puts '======================= BOOOOYYYY ====================='
-      @group = Group.find(params[:group_id])
-    end
+    @group = Group.find(params[:group_id]) if params[:group_id]
 
     respond_to do |format|
       if @movement.save

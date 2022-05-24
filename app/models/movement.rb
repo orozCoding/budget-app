@@ -7,5 +7,5 @@ class Movement < ApplicationRecord
   validates :name, presence: { message: 'Please submit a name' }
   validates :group_ids, presence: { message: 'Please select at least one category' }
   validates :amount, presence: { message: 'Please submit an amount' }
-  validates :amount, numericality: true
+  validates :amount, numericality: { greater_than: 0 }
 end
