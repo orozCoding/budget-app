@@ -5,6 +5,8 @@ RSpec.describe 'User home', type: :feature do
   describe 'User' do
     before(:each) do
       User.destroy_all
+      Group.destroy_all
+      Movement.destroy_all
       @user = User.create(id: 1, first_name: 'Amigo', last_name: 'Soy',
                           email: 'my@email.com', password: '321321')
       @group = Group.create(id: 1, author: @user, icon: 1, name: 'Food')
@@ -25,7 +27,10 @@ RSpec.describe 'User home', type: :feature do
       expect(page).to have_content('CATEGORIES')
     end
 
-    it 'Registers in correctly' do
+    it 'Registers correctly' do
+      User.destroy_all
+      Group.destroy_all
+      Movement.destroy_all
       visit '/'
       click_button 'SIGN UP'
       fill_in 'First Name', with: 'Angel'

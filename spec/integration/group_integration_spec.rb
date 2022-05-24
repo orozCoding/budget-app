@@ -5,6 +5,7 @@ RSpec.describe 'Group', type: :feature do
   describe 'Categories' do
     before(:each) do
       User.destroy_all
+      Group.destroy_all
       @user = User.create(id: 1, first_name: 'Amigo', last_name: 'Soy',
                           email: 'my@email.com', password: '321321')
       @group = Group.create(id: 1, author: @user, icon: 1, name: 'Food')
@@ -23,6 +24,8 @@ RSpec.describe 'Group', type: :feature do
     end
 
     it 'Adds new categories' do
+      Group.destroy_all
+      Movement.destroy_all
       login_as @user
       visit '/'
       click_link 'ADD NEW CATEGORY'

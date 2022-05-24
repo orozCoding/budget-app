@@ -5,6 +5,8 @@ RSpec.describe 'Movement', type: :feature do
   describe 'Movements' do
     before(:each) do
       User.destroy_all
+      Group.destroy_all
+      Movement.destroy_all
       @user = User.create(id: 1, first_name: 'Amigo', last_name: 'Soy',
                           email: 'my@email.com', password: '321321')
       @group = Group.create(id: 1, author: @user, icon: 1, name: 'Food')
@@ -23,6 +25,7 @@ RSpec.describe 'Movement', type: :feature do
     end
 
     it 'Adds new transaction' do
+      Movement.destroy_all
       login_as @user
       visit "/groups/#{@group.id}/movements"
       fill_in 'Name', with: 'Pizza'
