@@ -1,11 +1,13 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<div id="groups" class="d-flex col">
-  <% @groups.each do |group| %>
-    <%= render group %>
-  <% end %>
+<div class="section-header">
+  <h1>CATEGORIES</h1>
 </div>
-
-<%= link_to "Add new category", new_group_path %>
+<%= render 'shared/user-status'%>
+<div class="section-categories d-flex col">
+  <p style="color: green"><%= notice %></p>
+  <div id="groups" class="categories-ctn d-flex col vh-70">
+    <% @groups.each do |group| %>
+      <%= render group %>
+    <% end %>
+  </div>
+  <%= link_to "Add new category", new_group_path, class: 'new-cat-btn' %>
+</div>
