@@ -238,6 +238,69 @@ input:focus {
   border: none;
 }
 
-.per-80 {
-  min-height: 80%;
+.section-transactions {
+  flex-grow: 1;
+  width: 100%;
+  align-items: center;
+  padding-top: 15px;
+  gap: 20px;
+}
+
+.tra-info-ctn {
+  background-color: white;
+  width: 90%;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.tra-info-ctn i {
+  font-size: 60px;
+}
+
+.tra-info-line-1 {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+}
+
+.tra-info-line-2 {
+  gap: 10px;
+  align-self: flex-end;
+}
+
+hr {
+  width: 100%;
+  border-top: 1px rgb(223, 223, 223) solid;
+}
+
+.tra-list-ctn {
+  background-color: white;
+  width: 90%;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.transactions-ctn div:first-child {
+  gap: 10px;
+}
+
+.tra-empty-msg {
+  justify-self: center;
+}
+
+.cat-btns-ctn {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.new-tra-btn {
+  padding: 20px 0;
+  width: 100%;
+  color: white;
+  background-color: var(--green);
+  border: none;
 }
