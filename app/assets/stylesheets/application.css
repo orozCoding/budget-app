@@ -92,7 +92,6 @@ body {
 
 .home-ctn {
   flex-grow: 1;
-  border: solid 2px red;
   justify-content: flex-end;
   min-height: 100%;
 }
@@ -321,6 +320,10 @@ hr {
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+.icons-list div {
+  align-items: center;
 }
 
 .icon-box {
