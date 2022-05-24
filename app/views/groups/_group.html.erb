@@ -1,7 +1,6 @@
-<div id="<%= dom_id group %>">
-  <div class="cat-ctn d-flex">
-  <i class="<%= @icons.values[group.icon] %>"></i>
-    <%= link_to group.name, group %>
-    <p><%= "$#{group.movements_total}" %></p>
+  <div id="<%= dom_id group %>" class="categorie-ctn d-flex">
+    <div class="cat-icon-ctn"><i class="<%= @icons.values[group.icon] %>"></i></div>
+    <div class="cat-name-ctn"><%= link_to group.name, group %></div>
+    <div class="cat-total-ctn"><a href=<%=group_path(group)%>><p><%= "$#{group.movements_total}" %></p></a></div>
   </div>
-</div>
+
