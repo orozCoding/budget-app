@@ -311,6 +311,10 @@ hr {
   flex-wrap: wrap;
 }
 
+.form-icons-ctn div {
+  font-size: 20px;
+}
+
 .icons-list {
   flex-wrap: wrap;
   align-items: center;
@@ -326,4 +330,8 @@ hr {
 
 .icon-box i {
   font-size: 20px;
+}
+
+.main-fields input {
+  font-size: 18px;
 }
