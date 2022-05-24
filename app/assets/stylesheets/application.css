@@ -284,7 +284,7 @@ hr {
   gap: 10px;
 }
 
-.transactions-ctn div:first-child {
+.transactions-ctn div {
   gap: 10px;
 }
 
@@ -303,4 +303,27 @@ hr {
   color: white;
   background-color: var(--green);
   border: none;
+}
+
+.form-icons-ctn {
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.icons-list {
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon-box {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 120px;
+}
+
+.icon-box i {
+  font-size: 20px;
 }

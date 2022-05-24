@@ -40,7 +40,7 @@ class MovementsController < ApplicationController
         end
         format.json { render :show, status: :created, location: @movement }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :category_new, status: :unprocessable_entity }
         format.json { render json: @movement.errors, status: :unprocessable_entity }
       end
     end
