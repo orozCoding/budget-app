@@ -10,52 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_21_220713) do
+ActiveRecord::Schema[7.0].define(version: 20_220_521_220_713) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "group_movements", force: :cascade do |t|
-    t.bigint "group_id"
-    t.bigint "movement_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_group_movements_on_group_id"
-    t.index ["movement_id"], name: "index_group_movements_on_movement_id"
+  create_table 'group_movements', force: :cascade do |t|
+    t.bigint 'group_id'
+    t.bigint 'movement_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['group_id'], name: 'index_group_movements_on_group_id'
+    t.index ['movement_id'], name: 'index_group_movements_on_movement_id'
   end
 
-  create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.integer "icon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "author_id", null: false
-    t.index ["author_id"], name: "index_groups_on_author_id"
+  create_table 'groups', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'icon'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'author_id', null: false
+    t.index ['author_id'], name: 'index_groups_on_author_id'
   end
 
-  create_table "movements", force: :cascade do |t|
-    t.string "name"
-    t.integer "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "author_id", null: false
-    t.index ["author_id"], name: "index_movements_on_author_id"
+  create_table 'movements', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'amount'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.bigint 'author_id', null: false
+    t.index ['author_id'], name: 'index_movements_on_author_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "role", default: "user"
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'first_name'
+    t.string 'last_name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'role', default: 'user'
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
 
-  add_foreign_key "groups", "users", column: "author_id"
-  add_foreign_key "movements", "users", column: "author_id"
+  add_foreign_key 'groups', 'users', column: 'author_id'
+  add_foreign_key 'movements', 'users', column: 'author_id'
 end
