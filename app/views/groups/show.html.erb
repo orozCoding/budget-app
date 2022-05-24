@@ -27,6 +27,7 @@
             <p><%= i + 1 %>.</p>
             <strong>$<%= movement.amount %></strong>
             <p>"<%= movement.name %>"</p>
+            <%= button_to '', "#{@group.id}/movements/#{movement.id}", method: :get, class: "#{@icons[:trash]}" %>
           </div>
         <% end %>
       </div>

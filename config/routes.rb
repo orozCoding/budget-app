@@ -15,4 +15,5 @@ Rails.application.routes.draw do
 
   get 'groups/:group_id/movements', to: 'movements#category_new'
   post 'groups/:group_id/movements', to: 'movements#create'
+  get 'groups/:group_id/movements/:movement_id', to: 'movements#category_destroy'
 end

@@ -60,6 +60,18 @@ class MovementsController < ApplicationController
   end
 
   # DELETE /movements/1 or /movements/1.json
+  def category_destroy
+    @movement = Movement.find(params[:movement_id])
+
+    @movement.destroy
+    @group = Group.find(params[:group_id]) if params[:group_id]
+
+    respond_to do |format|
+      format.html { redirect_to group_path(@group), notice: 'Movement was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   def destroy
     @movement.destroy
 
