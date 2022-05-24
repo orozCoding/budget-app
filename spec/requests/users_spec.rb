@@ -41,7 +41,7 @@ RSpec.describe '/users', type: :request do
     it 'renders categories if user is logged' do
       login_as @user, scope: :user
       get '/'
-      expect(response.body).to include('Categories')
+      expect(response.body).to include('CATEGORIES')
     end
   end
 
