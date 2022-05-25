@@ -97,6 +97,11 @@ body {
 
 .logo-ctn {
   margin: auto;
+  gap: 6px;
+}
+
+.logo-ctn a {
+  font-weight: bold;
 }
 
 .splash-title {
