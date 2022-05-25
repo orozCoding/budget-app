@@ -24,8 +24,8 @@ html: {class: 'form-login d-flex col'}) do |form| %>
       <div class="icons-list d-flex">
         <%= form.collection_check_boxes(:group_ids, Group.where(author_id: current_user.id), :id, :name ) do |b| %>
           <div class="icon-box d-flex col">
-            <i class="<%= @icons.values[b.object.icon] %>"></i>
-            <%=b.text%>
+            <i class="<%= @icons.values[b.object.icon] %> icon-icon"></i>
+            <p class="icon-name"><%=b.text%></p>
             <% if b.object.id == @group.id %>
               <%=b.check_box checked: true %>
             <% else %>

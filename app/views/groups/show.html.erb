@@ -20,7 +20,7 @@
     <% else %>
       <h3>Transactions: </h3>
       <hr>
-      <div class="transactions-ctn">
+      <div class="transactions-ctn d-flex col">
         <% @group.movements_list.each_with_index do |movement, i| %>
           <div class="d-flex">
             <i class="<%= @icons.values[@group.icon]%>"></i>
