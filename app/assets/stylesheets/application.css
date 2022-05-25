@@ -370,3 +370,7 @@ hr {
 .main-fields input {
   font-size: 18px;
 }
+
+.new-cat-text {
+  font-weight: bold;
+}
