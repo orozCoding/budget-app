@@ -126,6 +126,7 @@ body {
   width: 80%;
   color: white;
   background-color: var(--blue);
+  font-weight: bold;
 }
 
 .section-header {
