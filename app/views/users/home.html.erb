@@ -1,0 +1,19 @@
+<!-- <div>
+  <p class="splash-title">Mi Platica</p>
+  <i class='bi bi-cash-stack'></i>
+  <%= button_to 'Log In', new_user_session_path, method: :get %>
+  <%= button_to 'Sign Up', new_user_registration_path, method: :get %>
+</div>
+-->
+<div class="home-ctn d-flex col">
+  <div class="logo-ctn">
+    <p class="splash-title">Mi Platica</p>
+    <i class='bi bi-cash-stack'></i>
+    <p>V 0.1</p>
+    <a href="https://www.github.com/orozcoding" target="blank" ><p>@orozCoding</p></a>
+  </div>
+  <div class="home-btns-ctn d-flex col">
+    <%= button_to 'LOG IN', new_user_session_path, class: 'login-btn', method: :get %>
+    <%= button_to 'SIGN UP', new_user_registration_path, class: 'signup-btn', method: :get %>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="section-header">
+  <h1>CATEGORIES</h1>
+</div>
+<%= render 'shared/user-status'%>
+<div class="section-categories d-flex col">
+  <p style="color: green"><%= notice %></p>
+  <div class="categories-wraper">
+    <div id="groups" class="categories-ctn d-flex col ">
+      <% @groups.each do |group| %>
+        <%= render group %>
+      <% end %>
+      <% if @groups.empty? %>
+        <p>You have no categories!</p>
+        <%= link_to "Create new category", new_group_path %>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to "ADD NEW CATEGORY", new_group_path, class: 'new-cat-btn' %>
+</div>

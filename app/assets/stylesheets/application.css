@@ -1,0 +1,341 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+@font-face {
+  font-family: 'proxima-nova-bold';
+  src: url('/assets/proxima_nova_bold.otf')
+}
+
+@font-face {
+  font-family: 'proxima-nova-light';
+  src: url('/assets/proxima_nova_light.otf')
+}
+
+:root {
+  --blue: #3778c2;
+  --green: #5fb523;
+  --grey: #434b54;
+  --light: proxima-nova-light;
+  --bold: proxima-nova-bold;
+  --bred: 2px solid red;
+  --bgreen: 2px solid green;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.col {
+  flex-direction: column;
+}
+
+a, button {
+  all: unset;
+  cursor: pointer;
+}
+
+input[type='submit'] {
+  cursor: pointer;
+}
+
+html {
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  flex-grow: 1;
+  background-color: rgb(70, 70, 70);
+  font-family: var(--light);
+  text-align: center;
+  color: var(--grey);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100vh; */
+}
+
+.body-ctn {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 430px;
+  background-color: #f4f4f4;
+  margin: auto;
+  /* min-height: 100vh; */
+}
+
+.home-ctn {
+  flex-grow: 1;
+  justify-content: flex-end;
+  min-height: 100%;
+}
+
+.logo-ctn {
+  margin: auto;
+}
+
+.splash-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+  cursor: default;
+  color: black;
+}
+
+.logo-ctn i {
+  font-size: 60px;
+  color: black;
+}
+
+.home-btns-ctn {
+  padding: 20px 5px;
+  gap: 15px;
+}
+
+.home-btns-ctn .login-btn {
+  padding: 15px;
+  width: 80%;
+  color: white;
+  background-color: var(--blue);
+}
+
+.section-header {
+  background-color: var(--blue);
+  padding: 15px 0;
+  color: white;
+}
+
+.login-form-ctn {
+  padding: 20px 0;
+}
+
+.form-login {
+  gap: 20px;
+}
+
+.login-form-ctn .field,
+.login-form-ctn .field input {
+  width: 100%;
+}
+
+.login-form-ctn .field input {
+  padding: 15px 10px;
+  border: solid 1px lightgray;
+}
+
+.main-fields .field:not(:first-child) {
+  margin-top: -1px;
+}
+
+.login-form-ctn .remember-line {
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.remember-label {
+  text-align: right;
+}
+
+.remember-cb {
+  text-align: right;
+}
+
+.form-btn {
+  padding: 15px;
+  width: 90%;
+  color: white;
+  background-color: var(--blue);
+  border: none;
+}
+
+input:focus {
+  background-color: rgb(234, 249, 255);
+  border: none;
+  outline: none;
+}
+
+.user-status-ctn {
+  padding: 15px 0 0 0;
+  text-align: center;
+  gap: 15px;
+  justify-content: center;
+}
+
+.section-categories {
+  flex-grow: 1;
+  width: 100%;
+  align-items: center;
+  min-height: 100%;
+}
+
+.categories-wraper {
+  flex-grow: 1;
+  width: 90%;
+}
+
+.categories-ctn {
+  flex-grow: 1;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.categorie-ctn {
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  padding: 20px 5px;
+}
+
+.cat-icon-ctn,
+.cat-total-ctn {
+  width: 25%;
+}
+
+.cat-name-ctn {
+  width: 50%;
+  text-align: left;
+}
+
+.categorie-ctn i {
+  font-size: 40px;
+}
+
+.new-cat-btn {
+  padding: 20px 0;
+  width: 100%;
+  color: white;
+  background-color: var(--green);
+  border: none;
+}
+
+.section-transactions {
+  flex-grow: 1;
+  width: 100%;
+  align-items: center;
+  padding-top: 15px;
+  gap: 20px;
+}
+
+.tra-info-ctn {
+  background-color: white;
+  width: 90%;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.tra-info-ctn i {
+  font-size: 60px;
+}
+
+.tra-info-line-1 {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+}
+
+.tra-info-line-2 {
+  gap: 10px;
+  align-self: flex-end;
+}
+
+hr {
+  width: 100%;
+  border-top: 1px rgb(223, 223, 223) solid;
+}
+
+.tra-list-ctn {
+  background-color: white;
+  width: 90%;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+}
+
+.transactions-ctn div {
+  gap: 10px;
+}
+
+.tra-empty-msg {
+  justify-self: center;
+}
+
+.cat-btns-ctn {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.new-tra-btn {
+  padding: 20px 0;
+  width: 100%;
+  color: white;
+  background-color: var(--green);
+  border: none;
+}
+
+.form-icons-ctn {
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.form-icons-ctn div {
+  font-size: 20px;
+}
+
+.icons-list {
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icons-list div {
+  align-items: center;
+}
+
+.icon-box {
+  align-items: center;
+  flex-wrap: wrap;
+  width: 120px;
+}
+
+.icon-box i {
+  font-size: 20px;
+}
+
+.main-fields input {
+  font-size: 18px;
+}
