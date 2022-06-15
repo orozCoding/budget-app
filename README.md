@@ -10,11 +10,9 @@ Mobile web application where you can manage your budget: you have a list of tran
 ![alt text](https://github.com/orozCoding/budget-app/blob/dev/app/assets/images/p2.png?raw=true)
 ![alt text](https://github.com/orozCoding/budget-app/blob/dev/app/assets/images/p3.png?raw=true)
 
-Coming soon
-
 ## Live Version
 
-[LIVE EXAMPLE](https://calm-dawn-43040.herokuapp.com/)
+[LIVE EXAMPLE](https://miplatica.herokuapp.com/)
 
 ## Built With
 - Ruby on Rails
